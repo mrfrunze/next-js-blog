@@ -29,6 +29,7 @@ a {
 
 .container {
   width: 1536px;
+  max-width: 100%;
   margin: auto;
   padding-left: 50px;
   padding-right: 50px;
@@ -39,44 +40,44 @@ a {
 }
 
 @media (max-width: 1536px) {
-  .container {
+  /* .container {
     width: 1366px;
-  }
+  } */
 }
 
 @media (max-width: 1366px) {
-  .container {
+  /* .container {
     width: 1280px;
-  }
+  } */
 }
 
 @media (max-width: 1280px) {
-  .container {
+  /* .container {
     width: 1024px;
     padding-left: 20px;
     padding-right: 20px;
-  }
+  } */
 }
 
 @media (max-width: 1024px) {
-  .container {
+  /* .container {
     width: 768px;
-  }
+  } */
 }
 
 @media (max-width: 768px) {
-  .container {
+  /* .container {
     width: 640px;
-  }
+  } */
 }
 
 @media (max-width: 640px) {
-  .container {
+  /* .container {
     width: 475px;
-  }
+  } */
 }
 @media (max-width: 475px) {
-  .container {
+  /* .container {
     width: 380px;
-  }
+  } */
 }
