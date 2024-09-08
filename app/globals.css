@@ -31,8 +31,8 @@ a {
   width: 1536px;
   max-width: 100%;
   margin: auto;
-  padding-left: 50px;
-  padding-right: 50px;
+  padding-left: 20px;
+  padding-right: 20px;
   min-height: 100vh;
   display: flex;
   flex-direction: column;
