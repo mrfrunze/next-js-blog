@@ -15,7 +15,9 @@ export default function Home() {
           <button className={styles.button}>Contact</button>
         </div>
         <div className={styles.brands}>
-          <Image src="/brands.png" alt="" fill className={styles.brandImg}
+          <Image src="/brands.png" alt="brands" fill className={styles.brandImg}
+            width={800}
+            height={800}
             sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
           />
         </div>
