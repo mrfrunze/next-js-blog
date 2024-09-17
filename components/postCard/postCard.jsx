@@ -13,9 +13,9 @@ const PostCard = ({post}) => {
           <span className={styles.date}>01.01.2024</span>
         </div>
         <div className={styles.bottom}>
-          <h1 className={styles.title}>Title</h1>
-          <p className={styles.desc}>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quibusdam ipsam commodi aperiam tenetur repudiandae totam quis, facere excepturi eum ad vero quam distinctio! Quo, corporis?</p>
-          <Link className={styles.link} href="/blog/post">READ MORE</Link>
+          <h1 className={styles.title}>{post.title.slice(0, 25)}...</h1>
+          <p className={styles.desc}>{post.body.slice(0, 100)}...</p>
+          <Link className={styles.link} href={`/blog/${post.id}`}>READ MORE</Link>
         </div>
       </div>
     )

@@ -2,7 +2,7 @@
 
 import NavLink from "./navLink/navLink"
 import styles from "./links.module.css"
-import path from "path"
+// import path from "path"
 import { useState } from "react"
 import Image from "next/image"
 
@@ -39,15 +39,15 @@ const Links = () => {
         <div className={styles.links}>
             {links.map(link => (
                 <NavLink item={link} key={link.title} />
-            ))}{
-            session ? (
+            ))}
+            {session ? (
                 <>
                     {isAdmin && <NavLink item={{title: "Admin", path: "/admin"}} />}
                     <button className={styles.logout}>Logout</button>
                 </>
-            )  : (
-                <NavLink item={{title: "Login", path: "/login"}}/>
-            )  
+                )  : (
+                    <NavLink item={{title: "Login", path: "/login"}}/>
+                )  
             }
         </div>
         <button className={styles.menuButton} onClick={() => setOpen(prev => !prev)}>
