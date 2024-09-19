@@ -40,6 +40,7 @@ const BlogPage = async ({searchParams}) => {
   const totalPages = Math.ceil(totalPosts.length / POSTS_PER_PAGE); // Общее количество страниц
 
   return (
+    <>
     <div className={styles.container}>
       {/* Рендерим посты */}
       {posts.map((post, index) => (
@@ -47,9 +48,10 @@ const BlogPage = async ({searchParams}) => {
           <PostCard post={post} index={index} />
         </div>
       ))}
-      {/* Подключаем компонент пагинации */}
-      <Pagination currentPage={page} totalPages={totalPages} />
     </div>
+    {/* Подключаем компонент пагинации */}
+    <Pagination currentPage={page} totalPages={totalPages} />
+    </>
   )
 }
 
