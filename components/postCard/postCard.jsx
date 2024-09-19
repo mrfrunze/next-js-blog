@@ -1,15 +1,12 @@
-import Image from "next/image"
 import styles from "./postCard.module.css"
 import Link from "next/link"
+import PostImg from "../postImg/postImg"
 
-const PostCard = ({post}) => {
+const PostCard = ({post, index}) => {
     return (
       <div className={styles.container}>
         <div className={styles.top}>
-          {/* {post.img &&  */}
-          <div className={styles.imgContainer}>
-            <Image src="/yoga.jpg" alt="" fill className={styles.img}/>
-          </div> {/*}  */}
+          <PostImg query="nature" index={index} />
           <span className={styles.date}>01.01.2024</span>
         </div>
         <div className={styles.bottom}>
