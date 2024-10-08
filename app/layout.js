@@ -3,7 +3,6 @@ import "./globals.css";
 import Navbar from "../components/navbar/Navbar";
 import Footer from "../components/footer/Footer";
 
-
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata = {
@@ -17,8 +16,9 @@ export default function RootLayout({ children }) {
       <body className={`${inter.className} flex flex-col min-h-screen`}>
         <div className="container">
           <Navbar />
-          <main className="flex-1 py-6">{children}</main>
-
+          <main className="flex-1 py-6">
+              {children}
+          </main>
           <Footer />
         </div>
       </body>

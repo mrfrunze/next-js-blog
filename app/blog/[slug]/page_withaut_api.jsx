@@ -1,40 +1,34 @@
+// "use client"
+
 import Image from "next/image"
 import styles from "./singlePost.module.css"
 // import { useParams } from 'next/navigation';
 import PostUser from "../../../components/postUser/postUser"
 import { Suspense } from "react";
-import PostImageClient from "../../../components/PostImageClient" 
+import {getPost} from "../../../lib/data"
 
-const getData = async (slug) => {
-  const res = await fetch(`https://jsonplaceholder.typicode.com/posts/${slug}`);
 
-  if (!res.ok) {
-    throw new Error("Something went wrong");
-  }
-  return res.json();
-};
 
-const SinglePostPage = async ({params, searchParams }) => {
+const SinglePostPage = async ({params}) => {
   const {slug} = params
-  const post = await getData(params.slug);
-  // console.log(params.slug);
-
-  // Извлекаем imageUrl из searchParams (или получаем через query в Link)
-  const imageUrl = searchParams.imageUrl || "/yoga.jpg"; // Замена при отсутствии URL
+  // slug должен приходить в виде number
+  // console.log(slug); 
   
-
+  const post = await getPost(slug)
+  // console.log(post);
+  
   return (
     <div className={styles.container}>
       <div className={styles.imgContainer}>
-        <PostImageClient imageUrl={imageUrl} fallbackImage="/yoga.jpg" alt={post.title} className={styles.img} />
+        <Image src="/yoga.jpg" alt="" fill className={styles.img} />
       </div>
       <div className={styles.textContainer}>
-        <h1  className={styles.title}>{post.title}</h1>
+        <h1  className={styles.title}>{post?.title}</h1>
         <div className={styles.detail}>
           <Image src="/avatar.jpg" alt="avatar" className={styles.avatar} width={64} height={64} />
-          <Suspense fallback={<div>Loading..</div>}>
+          {post && <Suspense fallback={<div>Loading..</div>}>
              <PostUser userId = {post.id}/>
-          </Suspense>
+          </Suspense>}
          
           <div className={styles.detailText}>
           </div>
@@ -43,7 +37,7 @@ const SinglePostPage = async ({params, searchParams }) => {
             <span className={styles.detailValue}>01.01.2024</span>
           </div>
         </div>
-        <div className={styles.content}>{post.body}</div>
+        <div className={styles.content}>{post?.body}</div>
       </div>
     </div>
   )

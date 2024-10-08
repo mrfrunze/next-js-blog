@@ -17,10 +17,16 @@ const getPhotos = async (query) => {
   return data.results; // Возвращаем массив с изображениями
 };
 
-const PostImg = async ({query, index }) => {
+const PostImg = async ({query, index, onImageLoad }) => {
 
   const images = await getPhotos(query);
   const img = images[index % images.length];
+
+  // Вызываем функцию onImageLoad, если она передана
+  if (onImageLoad) {
+    // Передаем URL картинки в родительский компонент
+    onImageLoad(img.urls.small); 
+  }
   
 
   return (
