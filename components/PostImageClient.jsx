@@ -8,7 +8,9 @@ const PostImageClient = ({ imageUrl, fallbackImage, alt }) => {
     <Image 
       src={imageUrl || fallbackImage} 
       alt={alt} 
-      fill 
+      fill
+      sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+      style={{ objectFit: 'cover'}}
     />
   );
 };

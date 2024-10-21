@@ -6,15 +6,20 @@
 .imgContainer {
   flex: 1;
   position: relative;
-  height: calc(100vh - 200px);
+  /* height: calc(100vh - 200px); */
+  height: 50vh;
+  width: 100%;
+  overflow: hidden;
 }
 
 .img{
   object-fit: cover;
+  width: 100%;
+  height: 100%;
 }
 
 .textContainer {
-  flex: 2;
+  flex: 1;
   display: flex;
   flex-direction: column;
   gap: 50px;
@@ -54,7 +59,16 @@
 }
 
 @media (max-width:980px){
-  /* .imgContainer{
-    display: none;
-  } */
+  .imgContainer{
+    min-height: 300px;
+    width: 100%;
+  } 
+
+  .container {
+    flex-direction: column;
+    gap: 50px;
+  }
+  .textContainer {
+    width: 100%;
+  }
 }
