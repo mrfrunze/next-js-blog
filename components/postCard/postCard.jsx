@@ -5,10 +5,11 @@ const PostCard = async ({post, index}) => {
    // Заранее определяем переменные
   const ACCESS_KEY = process.env.NEXT_PUBLIC_UNSPLASH_ACCESS_KEY;
   const BASE_URL = "https://api.unsplash.com/search/photos"; 
-
+  
   // Получаем URL картинки на сервере
   const images = await fetch(`${BASE_URL}?query=${post.title}&client_id=${ACCESS_KEY}&per_page=10`);
   const data = await images.json();
+  // console.log(data);
   
   // Получаем одну картинку по индексу
   const img = data.results[index % data.results.length]; 

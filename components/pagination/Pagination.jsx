@@ -1,5 +1,3 @@
-import React from 'react';
-
 // Функция для создания страниц с точками
 function getPaginationPages(currentPage, totalPages) {
   const delta = 2; // Количество страниц до и после текущей
