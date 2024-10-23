@@ -9,7 +9,7 @@ const POSTS_PER_PAGE = 10;
 const getData = async (page) => {
   const start = (page - 1) * POSTS_PER_PAGE;
 
-  const res = await fetch(`https://jsonplaceholder.typicode.com/posts?_start=${start}&_limit=${POSTS_PER_PAGE}`, {next:{revalidate:3600}});
+  const res = await fetch(`https://jsonplaceholder.typicode.com/posts?_limit=30?_start=${start}&_limit=${POSTS_PER_PAGE}`, {next:{revalidate:3600}});
 
   if (!res.ok) {
     throw new Error("Something went wrong");
@@ -19,7 +19,7 @@ const getData = async (page) => {
 
 // FETCH всего количества постов (нужно для расчёта количества страниц)
 const getTotalPosts = async () => {
-  const res = await fetch("https://jsonplaceholder.typicode.com/posts");
+  const res = await fetch("https://jsonplaceholder.typicode.com/posts?_limit=30");
   if (!res.ok) {
     throw new Error("Something went wrong");
   }
